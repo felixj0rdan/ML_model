@@ -1,4 +1,3 @@
-import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -17,17 +16,20 @@ public class Server {
 
 	    System.out.println(irisTrain);
 	    
-	    TestSmile model = new TestSmile();
+	    TestSmile model = new TestSmile();  // a new random forest model
 	    
-	    model.trainModel(irisTrain);
-	    model.testModel(irisTest);
+	    model.trainModel(irisTrain);  // to train the model
+	    
+	    model.testModel(irisTest);    // now testing the model
 	    	    
-	    model.testAccuracy("src/files/IrisAccu.csv");
+	    model.testAccuracy("src/files/IrisAccu.csv");   // to compare the prediction with actual classifications
 	    
-	    model.modelMetrics();
+	    model.modelMetrics();  // to produce the metrics of the model
 	    
 	    System.out.println(model.forest);
 	    
+	    
+	    // now we will store the object in a text file to access later 
 	    String filename = "src/files/Forest.txt";
 	    
 	    File file = new File(filename);

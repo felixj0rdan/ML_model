@@ -1,14 +1,8 @@
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.io.Serializable;
-import java.net.URISyntaxException;
-import java.text.ParseException;
 import java.util.*;
-
-import smile.io.*;
-import org.apache.commons.csv.CSVFormat;
 
 import smile.classification.*;
 import smile.data.DataFrame;
@@ -18,6 +12,10 @@ import smile.validation.metric.Accuracy;
 
 public class TestSmile implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	RandomForest forest;
 	ClassificationMetrics metrics;
 	double accuracy;
