@@ -16,10 +16,10 @@ public class TestSmile implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	RandomForest forest;
-	ClassificationMetrics metrics;
-	double accuracy;
-	int[] testResult;
+	public RandomForest forest;
+	public ClassificationMetrics metrics;
+	public double accuracy;
+	public int[] testResult;
 	
 	void trainModel(DataFrame irisTrain) {
 			
@@ -33,13 +33,14 @@ public class TestSmile implements Serializable {
 	    ClassificationMetrics metrics = forest.metrics();
 	    this.forest = forest;
 	    this.metrics = metrics;
-	    
+	    this.accuracy = this.metrics.accuracy*100;
 	}
 	
 	void testModel(DataFrame irisTest) {
 		this.testResult = forest.predict(irisTest);
 		for(int j: this.testResult)
 	    	System.out.println(j);
+		
 	}
 	
 	int[] testAccuracy(String fileToVerify) throws FileNotFoundException {
