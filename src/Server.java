@@ -34,10 +34,16 @@ public class Server {
 	    
 	    File file = new File(filename);
 	    
-	    FileOutputStream fos = new FileOutputStream(file);
-	    ObjectOutputStream oos = new ObjectOutputStream(fos);
+//	    FileOutputStream fos = new FileOutputStream(file);
+//	    ObjectOutputStream oos = new ObjectOutputStream(fos);
 	    
-	    oos.writeObject(model);
+//	    oos.writeObject(model);
+//	    oos.close();
+	    
+	    // by using try with resources 
+	    try(FileOutputStream fos = new FileOutputStream(file); ObjectOutputStream oos = new ObjectOutputStream(fos)){
+	    	oos.writeObject(model);
+	    }
 	     
 	}
 

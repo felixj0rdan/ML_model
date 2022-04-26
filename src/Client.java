@@ -18,11 +18,18 @@ public class Client {
 	    
 	    File file = new File(filename);
 		
-		FileInputStream fis = new FileInputStream(file);
-		ObjectInputStream ois =  new  ObjectInputStream(fis);
+//		FileInputStream fis = new FileInputStream(file);
+//		ObjectInputStream ois =  new  ObjectInputStream(fis);
+	    
+	    TestSmile model=null;
 		
-		// the object is stored in an object model  
-		TestSmile model = (TestSmile) ois.readObject();
+	    // try with resource
+		try (FileInputStream fis = new FileInputStream(file); ObjectInputStream ois =  new  ObjectInputStream(fis)){
+			// the object is stored in an object model  
+			model = (TestSmile) ois.readObject();
+		}
+		
+		
 		
 		System.out.println(model.forest);	
 		
